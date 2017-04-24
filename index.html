@@ -1,0 +1,284 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>JS_HomeWork13-14</title>
+
+	<link rel="stylesheet" href="css/style.css">
+    <script src="js/jquery-1.11.1.min.js"></script>
+    <script src="js/tmpl.js"></script>
+    <script src="js/script_tmpl.js"></script>
+
+  </head>
+  <body>
+       
+
+           
+           <!--  <div  class="content" id="content">
+				<div><h2>Тест по программированию</h2></div>
+				<div class="block" id="block">
+                    <article>
+						<p class="v"> Вопрос №1</p>
+                        <div class="clear"></div>
+                        <input  type="checkbox" name="">
+                        <p >Вариант ответа №1</p>
+                        <div class="clear"></div>
+                        <input type="checkbox" name="">
+                        <p >Вариант ответа №2</p>
+                        <div class="clear"></div>
+                        <input  type="checkbox" name="">
+                        <p >Вариант ответа №3</p>
+                    </article>
+				</div>
+                <div class="block" id="block1">
+                    <article>
+                        <p class="v"> Вопрос №2</p>
+                        <div class="clear"></div>
+                        <input type="checkbox" name="">
+                        <p >Вариант ответа №1</p>
+                        <div class="clear"></div>
+                        <input type="checkbox" name="">
+                        <p >Вариант ответа №2</p>
+                        <div class="clear"></div>
+                        <input type="checkbox" name="">
+                        <p>Вариант ответа №3</p>
+                    </article>
+                </div>
+                <div class="block" id="block2">
+                    <article>
+                        <p class="v"> Вопрос №3</p>
+                        <div class="clear"></div>
+                        <input type="checkbox" name="">
+                        <p >Вариант ответа №1</p>
+                        <div class="clear"></div>
+                        <input type="checkbox" name="">
+                        <p >Вариант ответа №2</p>
+                        <div class="clear"></div>
+                        <input type="checkbox" name="">
+                        <p style="">Вариант ответа №3</p>
+                    </article>
+                </div>
+                <div class="clear"></div>
+                <div style="margin-top: 30px;">
+                    <a id="result" href="#" class="batton" style="  ">Проверить мой результат</a>
+                </div>           
+            </div> -->
+
+
+           <!--  <div class="batton" >
+                <a id="" href="#" style="  ">Проверить мой результат</a>
+            </div> 
+            <input type="checkbox" id="" checked/>
+            <script type="text/javascript">
+                document.getElementById('result').onclick = function () {
+                  if (document.getElementById('result').checked) alert('On'); else alert('Off');
+                }
+            </script>
+ -->
+
+
+            <script type="text/template" id="block1">
+                <div class="content">               
+                    <div><h2>Тест по программировани</h2></div>                                     
+                    <% for(var i=0; i < data.lenght; i++); { %>
+                        <div class="article1">                
+                            <p><%= data[i].title %></p>
+                            <p><%= data[i].content %></p>
+                        </div>
+                    <% } %>
+                </div>
+            </script>
+
+            <script type="text/tmpl" id="block2">
+                <div class="content" style="">
+                    <% for(var i=0; i < data.lenght; i++); { %>
+                        <div class="article1">                
+                            <p><%= data[i].title %></p>
+                            <p><%= data[i].content %></p>
+                        </div>
+                    <% } %>
+                </div>
+            </script>
+
+            <script type="text/tmpl" id="block3">
+                <div class="content">
+                    <% for(var i=0; i < data.lenght; i++); { %>
+                        <div class="article1">                
+                            <p><%= data[i].title %></p>
+                            <p><%= data[i].content %></p>
+                        </div>
+                    <% } %>                
+                </div>
+
+               
+
+            
+                <div class="batton content">
+                    <a id="result" href="#dialog2" name="modal">Проверить мой результат</a>
+                </div>
+
+                <div id="boxes">
+                    <div id="dialog" class="window">
+
+                    Простое модальное окно | 
+                    <a href="#" class="close"/>Закрыть его</a>
+                    </div>
+           
+                    <!-- Начало красивого стикера -->
+                    <div id="dialog2" class="window " style="margin: 0 auto">
+                        <b>Вопрос №1</b><br/>
+                        <b>Вопрос №2</b><br/>
+                        <b>Вопрос №3</b><br/>
+                        <input type="button" value="Результа!!!" class="close"/>
+                    </div>
+                    <!-- конец -->
+
+                    <!-- Макска, которая затемняет весь экран -->
+                    <div id="mask"></div>
+                </div>
+            </script>
+
+
+
+
+<!-- 
+    <script type="text/javascript">
+        var content = document.getElementById("content");
+        content.innerHTML += "<p>Тест по программированию</p>";
+        /*content.style.backgroundColor = "#DCDCDC";*/
+        content.style.marginTop = "18px";
+        content.style.color = "black";
+        content.style.textAlign = "center";
+        content.style.fontSize = "20px";
+
+        document.write("<div id='block'></div>");
+        var block = document.getElementById("block");
+
+        block.style.width = "570px";
+        block.style.margin = "0 auto"
+        block.style.fontSize = "20px"
+        block.style.marginTop = '34px'
+        block.style.marginBottom = '10px';
+
+
+        text = '1. Вопрос №1';
+
+        block.innerHTML = text;
+        block.style.clear = 'both';
+        block.style.lineHeight = '0';
+        
+        block.innerHTML += '<label style="margin-top: 10px"><input type="checkbox" value="1" name="k"><span></span></label><p style="padding-left:50px;">Вариант ответа №1</p>';
+        block.innerHTML += '<label><input type="checkbox" value="1" name="k"><span></span></label><p style="padding-left:50px">Вариант ответа №2</p>';
+        block.innerHTML += '<label><input type="checkbox" value="1" name="k"><span></span></label><p style="padding-left:50px">Вариант ответа №3</p>';
+
+
+
+        document.write("<div id='block1'></div>");
+        var blok1 = document.getElementById("blok1")
+       
+        block1.style.width = "570px";
+        block1.style.margin = "0 auto"
+        block1.style.fontSize = "20px"
+
+        block1.style.clear = 'both';
+        block1.style.lineHeight = '0.7';
+
+        block1.innerHTML += "<p style='padding-top: 11px'>2. Вопрос №2</p>"
+        block1.innerHTML += '<label style="margin-top: 10px"><input type="checkbox" value="1" name="k"><span></span></label><p style="padding-left:50px; margin-top: -8px">Вариант ответа №1</p>';
+        block1.innerHTML += '<label style="margin-top: -5px"><input type="checkbox" value="1" name="k"><span></span></label><p style="padding-left:50px; margin-top: -8px">Вариант ответа №2</p>';
+        block1.innerHTML += '<label style="margin-top: -5px"><input type="checkbox" value="1" name="k"><span></span></label><p style="padding-left:50px; margin-top: -8px">Вариант ответа №3</p>';
+
+
+        document.write("<div id='block2'></div>");
+        var blok2 = document.getElementById("blok2")
+       
+        block2.style.width = "570px";
+        block2.style.margin = "0 auto"
+        block2.style.fontSize = "20px"
+
+        block2.style.clear = 'both';
+        block2.style.lineHeight = '0.7';
+
+        block2.innerHTML += "<p style='padding-top: 11px'>3. Вопрос №3</p>"
+        block2.innerHTML += '<label style="margin-top: 10px"><input type="checkbox" value="1" name="k"><span></span></label><p style="padding-left:50px; margin-top: -8px">Вариант ответа №1</p>';
+        block2.innerHTML += '<label style="margin-top: -5px"><input type="checkbox" value="1" name="k"><span></span></label><p style="padding-left:50px; margin-top: -8px">Вариант ответа №2</p>';
+        block2.innerHTML += '<label style="margin-top: -5px"><input type="checkbox" value="1" name="k"><span></span></label><p style="padding-left:50px; margin-top: -8px">Вариант ответа №3</p>';
+
+
+        document.write("<div id='result'></div>");
+        var result = document.getElementById("result");
+        result.innerHTML += "<h4 style='color: black; text-align:  center'>Проверить мой результат</h4>";
+
+        result.style.width = "315px";
+        result.style.padding = "5px 15px";
+        result.style.margin = "44px auto"
+        result.style.border = "2px solid black"
+        result.style.backgroundColor = "#cfe2f3";
+     
+      </script> -->
+
+    
+
+
+     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+     <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> -->
+     <!-- Include all compiled plugins (below), or include individual files as needed -->
+     <!-- <script src="js/bootstrap.min.js"></script> -->
+    
+
+        <script>
+
+            $(document).ready(function() {  
+
+                //select all the a tag with name equal to modal
+                $('a[name=modal]').click(function(e) {
+                    //Cancel the link behavior
+                    e.preventDefault();
+                    //Get the A tag
+                    var id = $(this).attr('href');
+                
+                    //Get the screen height and width
+                    var maskHeight = $(document).height();
+                    var maskWidth = $(window).width();
+                
+                    //Set heigth and width to mask to fill up the whole screen
+                    $('#mask').css({'width':maskWidth,'height':maskHeight});
+                    
+                    //transition effect     
+                    $('#mask').fadeIn(1000);    
+                    $('#mask').fadeTo("slow",0.8);  
+                
+                    //Get the window height and width
+                    var winH = $(window).height();
+                    var winW = $(window).width();
+                          
+                    //Set the popup window to center
+                    $(id).css('top',  winH/2-$(id).height()/2);
+                    $(id).css('left', winW/2-$(id).width()/2);
+                
+                    //transition effect
+                    $(id).fadeIn(2000); 
+                
+                });
+                
+                //if close button is clicked
+                $('.window .close').click(function (e) {
+                    //Cancel the link behavior
+                    e.preventDefault();
+                    $('#mask, .window').hide();
+                });     
+                
+                //if mask is clicked
+                $('#mask').click(function () {
+                    $(this).hide();
+                    $('.window').hide();
+                });         
+                
+            });
+
+            </script>
+  </body>
+</html>
